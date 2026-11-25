@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: discord-zapier-bridge
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: ZAPIER_WEBHOOK_URL
+        sync: false
+      - key: CHANNEL_NAME
+        value: sme-room
