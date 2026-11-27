@@ -1,3 +1,6 @@
+import logging  # ← This MUST be first
+import os
+
 import aiohttp
 import discord
 
