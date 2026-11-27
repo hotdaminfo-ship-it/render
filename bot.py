@@ -49,4 +49,5 @@ async def on_message(message):
         logging.exception("Could not forward message to Zapier")
 
 
-client.run(os.environ["DISCORD_BOT_TOKEN"])
+python
+client.run(os.getenv("DISCORD_BOT_TOKEN", "NOT_SET"))
