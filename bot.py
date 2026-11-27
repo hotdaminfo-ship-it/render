@@ -49,7 +49,13 @@ async def on_message(message):
         logging.exception("Could not forward message to Zapier")
 
 
-token = os.getenv("DISCORD_BOT_TOKEN", "NOT_SET")
+token = os.getenv("DISCORD_BOT_TOKEN", "").strip()
+
+logging.info("Discord token variable exists: %s", bool(token))
+logging.info("Discord token length: %s", len(token))
+logging.info("Discord token has whitespace: %s", token != token.strip() if token else False)
+
 if not token:
-    raise ValueError("DISCORD_BOT_TOKEN is missing from Railway!")
+    raise RuntimeError("DISCORD_BOT_TOKEN is missing or empty!")
+
 client.run(token)
