@@ -1,10 +1,9 @@
-import logging
-import os
-
 import aiohttp
 import discord
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)  # ← Add this line
+print("Starting bot...")  # ← Add this line
+print(f"Token: {os.environ.get('DISCORD_BOT_TOKEN', 'NOT SET')}")  # ← Add this line
 
 ZAPIER_WEBHOOK_URL = os.environ["ZAPIER_WEBHOOK_URL"]
 CHANNEL_NAME = os.getenv("CHANNEL_NAME", "sme-room")
