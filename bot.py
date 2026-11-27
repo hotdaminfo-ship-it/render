@@ -1,4 +1,4 @@
-import logging  # 
+import logging  
 import os
 
 import aiohttp
@@ -6,7 +6,7 @@ import discord
 
 logging.basicConfig(level=logging.DEBUG)  # ← Add this line
 print("Starting bot...")  # ← Add this line
-print(f"Token: {os.environ.get('DISCORD_BOT_TOKEN', 'NOT SET')}")  # ← Add this line
+print(f"Token: {os.environ.get('DISCORD_BOT_TOKEN', 'NOT SET')}")  
 
 ZAPIER_WEBHOOK_URL = os.environ["ZAPIER_WEBHOOK_URL"]
 CHANNEL_NAME = os.getenv("CHANNEL_NAME", "sme-room")
@@ -41,7 +41,7 @@ async def on_message(message):
         "message_id": str(message.id),
     }
 
-    timeout = aiohttp.ClientTimeout(total=100)
+    timeout = aiohttp.ClientTimeout(total=15)
     try:
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(ZAPIER_WEBHOOK_URL, json=payload) as response:
