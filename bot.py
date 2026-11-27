@@ -50,4 +50,6 @@ async def on_message(message):
 
 
 token = os.getenv("DISCORD_BOT_TOKEN", "NOT_SET")
+if not token:
+    raise ValueError("DISCORD_BOT_TOKEN is missing from Railway!")
 client.run(token)
