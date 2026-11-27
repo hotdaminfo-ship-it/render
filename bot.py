@@ -6,7 +6,7 @@ import discord
 
 logging.basicConfig(level=logging.INFO)
 
-ZAPIER_WEBHOOK_URL = os.environ["ZAPIER_WEBHOOK_URL"]
+ZAPIER_WEBHOOK_URL = os.getenv("ZAPIER_WEBHOOK_URL", "NOT_SET")
 CHANNEL_NAME = os.getenv("CHANNEL_NAME", "sme-room")
 
 intents = discord.Intents.default()
