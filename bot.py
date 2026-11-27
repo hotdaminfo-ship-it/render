@@ -41,7 +41,7 @@ async def on_message(message):
         "message_id": str(message.id),
     }
 
-    timeout = aiohttp.ClientTimeout(total=15)
+    timeout = aiohttp.ClientTimeout(total=100)
     try:
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(ZAPIER_WEBHOOK_URL, json=payload) as response:
