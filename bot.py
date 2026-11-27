@@ -58,4 +58,4 @@ logging.info("Discord token has whitespace: %s", token != token.strip() if token
 if not token:
     raise RuntimeError("DISCORD_TOKEN is missing or empty!")
 
-client.run(token)
+client.run(os.environ["DISCORD_TOKEN"])
